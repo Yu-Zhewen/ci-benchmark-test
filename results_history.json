@@ -1,0 +1,64 @@
+{
+    "results": [
+        {
+            "commit_hash": 111111,
+            "tests": [
+                {
+                    "test_name": "Test 1",
+                    "status": "passed",
+                    "duration": 3.6220256681876233
+                },
+                {
+                    "test_name": "Test 2",
+                    "status": "passed",
+                    "duration": 8.444901965185238
+                },
+                {
+                    "test_name": "Test 3",
+                    "status": "passed",
+                    "duration": 4.370701633652356
+                }
+            ]
+        },
+        {
+            "commit_hash": 22222,
+            "tests": [
+                {
+                    "test_name": "Test 1",
+                    "status": "passed",
+                    "duration": 3.6220256681876233
+                },
+                {
+                    "test_name": "Test 2",
+                    "status": "passed",
+                    "duration": 8.444901965185238
+                },
+                {
+                    "test_name": "Test 3",
+                    "status": "passed",
+                    "duration": 4.370701633652356
+                }
+            ]
+        },
+        {
+            "commit_hash": 3333,
+            "tests": [
+                {
+                    "test_name": "Test 1",
+                    "status": "passed",
+                    "duration": 3.6220256681876233
+                },
+                {
+                    "test_name": "Test 2",
+                    "status": "passed",
+                    "duration": 8.444901965185238
+                },
+                {
+                    "test_name": "Test 3",
+                    "status": "passed",
+                    "duration": 4.370701633652356
+                }
+            ]
+        }
+    ]
+}

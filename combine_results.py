@@ -1,6 +1,5 @@
-import json
 import os
-import subprocess
+import json
 
 # Get the commit hash from the environment variable (the current commit triggering the workflow)
 commit_hash = os.getenv("GITHUB_SHA")

@@ -8,6 +8,7 @@ with open("results_history.json", "r") as f:
 graph_data = {}
 for entry in results_history["results"]:
     commit_hash = entry["commit_hash"]
+    truncated_commit_hash = str(commit_hash)[:7]  # Truncate commit hash to first 7 characters
     for test in entry["tests"]:
         test_name = test["test_name"]
         status = test["status"]
@@ -16,7 +17,7 @@ for entry in results_history["results"]:
         if test_name not in graph_data:
             graph_data[test_name] = {"commit_hashes": [], "durations": [], "statuses": []}
 
-        graph_data[test_name]["commit_hashes"].append(commit_hash)
+        graph_data[test_name]["commit_hashes"].append(truncated_commit_hash)  # Use truncated commit hash
         graph_data[test_name]["durations"].append(duration)
         graph_data[test_name]["statuses"].append(status)
 
@@ -50,7 +51,7 @@ for test_name, data in graph_data.items():
         const chart_{test_name.replace(' ', '_')} = new Chart(ctx_{test_name.replace(' ', '_')}, {{
             type: 'line',
             data: {{
-                labels: {data["commit_hashes"]},  // Commit hashes as X-axis labels
+                labels: {data["commit_hashes"]},  // Truncated commit hashes as X-axis labels
                 datasets: [{{
                     label: 'Duration (s)',
                     data: {data["durations"]},   // Test durations as Y-axis
@@ -66,11 +67,6 @@ for test_name, data in graph_data.items():
                         title: {{
                             display: true,
                             text: 'Commit Hash'
-                        }},
-                        ticks: {{
-                            callback: function(value, index, values) {{
-                                return value.substring(0, 7);  // Show short commit hash
-                            }}
                         }}
                     }},
                     y: {{
@@ -92,8 +88,7 @@ html_content += """
 """
 
 # Save the HTML file
-with open("results.html", "w") as f:
+with open("results_history.html", "w") as f:
     f.write(html_content)
 
-print("Visualization with graphs generated and saved to results.html.")
-
+print("Visualization with graphs generated and saved to results_history.html.")

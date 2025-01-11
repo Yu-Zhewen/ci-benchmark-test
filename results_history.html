@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Results Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .chart-container { width: 80%; margin: 30px auto; }
+        canvas { width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Test Results Visualization</h1>
+    <p>Overview of test results for the most recent commits:</p>
+
+    <div class="chart-container">
+        <h2>Performance for Test 1</h2>
+        <canvas id="chart-Test-1"></canvas>
+    </div>
+    <script>
+        const ctx_Test_1 = document.getElementById('chart-Test-1')
+        const chart_Test_1 = new Chart(ctx_Test_1, {
+            type: 'line',
+            data: {
+                labels: ['111111', '22222', '3333'],  // Truncated commit hashes as X-axis labels
+                datasets: [{
+                    label: 'Duration (s)',
+                    data: [3.6220256681876233, 3.6220256681876233, 3.6220256681876233],   // Test durations as Y-axis
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Commit Hash'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Duration (s)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <div class="chart-container">
+        <h2>Performance for Test 2</h2>
+        <canvas id="chart-Test-2"></canvas>
+    </div>
+    <script>
+        const ctx_Test_2 = document.getElementById('chart-Test-2')
+        const chart_Test_2 = new Chart(ctx_Test_2, {
+            type: 'line',
+            data: {
+                labels: ['111111', '22222', '3333'],  // Truncated commit hashes as X-axis labels
+                datasets: [{
+                    label: 'Duration (s)',
+                    data: [8.444901965185238, 8.444901965185238, 8.444901965185238],   // Test durations as Y-axis
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Commit Hash'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Duration (s)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <div class="chart-container">
+        <h2>Performance for Test 3</h2>
+        <canvas id="chart-Test-3"></canvas>
+    </div>
+    <script>
+        const ctx_Test_3 = document.getElementById('chart-Test-3')
+        const chart_Test_3 = new Chart(ctx_Test_3, {
+            type: 'line',
+            data: {
+                labels: ['111111', '22222', '3333'],  // Truncated commit hashes as X-axis labels
+                datasets: [{
+                    label: 'Duration (s)',
+                    data: [4.370701633652356, 4.370701633652356, 4.370701633652356],   // Test durations as Y-axis
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Commit Hash'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Duration (s)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
