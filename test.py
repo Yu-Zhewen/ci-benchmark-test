@@ -1,12 +1,12 @@
-# generate_results.py
+import random
 import json
 
 # Example test results (without commit hash)
 test_results = {
     "tests": [
-        {"test_name": "Test 1", "status": "passed", "duration": 1.2},
-        {"test_name": "Test 2", "status": "failed", "duration": 2.4},
-        {"test_name": "Test 3", "status": "passed", "duration": 0.8},
+        {"test_name": "Test 1", "status": "passed", "duration": random.uniform(1, 10)},
+        {"test_name": "Test 2", "status": "passed", "duration": random.uniform(1, 10)},
+        {"test_name": "Test 3", "status": "passed", "duration": random.uniform(1, 10)},
     ]
 }
 
