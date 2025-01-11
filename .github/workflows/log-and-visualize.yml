@@ -1,0 +1,58 @@
+name: Log and Visualize Results
+
+on:
+  push:
+    branches:
+      - main  # Trigger on commits to the main branch
+
+permissions:
+  contents: write  # Required to push changes
+  pages: write     # Required to push to gh-pages (if using GitHub Pages)
+
+jobs:
+  generate-results-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      # # Step 3: Install dependencies
+      # - name: Install dependencies
+      #   run: pip install -r requirements.txt
+
+      # Step 4: Run Python script to generate results
+      - name: Run Python script to capture command results
+        run: python test.py  # Generates results.json 
+
+      # Step 5: Checkout gh-pages branch
+      - name: Checkout gh-pages branch
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git pull origin gh-pages
+
+      # Step 6: Combine current results with previous results
+      - name: Combine current and previous results
+        run: python combine_results.py  # Combines results.json with history
+
+      # Step 7: Generate HTML visualization
+      - name: Generate HTML visualization
+        run: python generate_visualization.py  # Generates results_history.html
+
+      # Step 8: Commit and push results and visualization to gh-pages branch
+      - name: Commit and push results to gh-pages branch
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Yu-Zhewen/ci-benchmark-test.git
+          git add results_history.json results_history.html
+          git commit -m "Update results and deploy visualization"
+          git push --force --set-upstream origin gh-pages
