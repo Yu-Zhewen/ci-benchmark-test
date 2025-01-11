@@ -59,6 +59,26 @@
                     "duration": 4.370701633652356
                 }
             ]
+        },
+        {
+            "commit_hash": "7d3354236a9ed1ccd97765904c57ebaa61936938",
+            "tests": [
+                {
+                    "test_name": "Test 1",
+                    "status": "passed",
+                    "duration": 3.2875674877124466
+                },
+                {
+                    "test_name": "Test 2",
+                    "status": "passed",
+                    "duration": 5.2789210692157775
+                },
+                {
+                    "test_name": "Test 3",
+                    "status": "passed",
+                    "duration": 5.624263433333768
+                }
+            ]
         }
     ]
 }
